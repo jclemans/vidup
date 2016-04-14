@@ -1,4 +1,4 @@
-<h3>Upload video</h3>
+<p>Add your video details below and submit!</p>
 <%= form_for @video, :html => { action: 'create' } do |f| %>
   <p>
     <%= f.label :title %><br />
@@ -15,5 +15,5 @@
   <p>
     <%= f.file_field :attachment %>
   </p>
-  <p><%= f.submit "Submit" %></p>
+  <p><%= f.submit "Submit", class: "btn btn-primary-outline" %></p>
 <% end %>
