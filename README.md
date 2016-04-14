@@ -2,25 +2,25 @@
 
 ### Getting the application up and running
 
-* Ruby version 2.2.3 recommended. Rails 4.2 requires at least 1.9.3, and likes v2 best.
-* System dependencies
-* Configuration
-* Database creation
-* Database initialization
-* How to run the test suite
-* Services (job queues, cache servers, search engines, etc.)
-* Deployment instructions
+Ruby version 
+* Ruby 2.2.3 recommended. Rails 4.2 requires at least 1.9.3, and likes v2 best.
 
+System dependencies:
+* ffmpeg transcoding library
+* `brew install ffmpeg --with-fdk-aac --with-ffplay --with-freetype --with-frei0r --with-libas`
+
+Run the test suite using Rspec:
+* `rspec` or `rake`
 
 ### Checklist of Goals
 
-[] A user needs to be able to upload videos to the web application server
+[x] A user needs to be able to upload videos to the web application server
 
-[] The uploader should only be able to upload the mp4 file types
+[x] The uploader should only be able to upload the mp4 file types
 
-[] All other file types should be blocked
+[x] All other file types should be blocked
 
-[] After the video has been uploaded, the user should be able to replay this 
+[x] After the video has been uploaded, the user should be able to replay this 
 video from the web application
 
 [] It should show a progress bar to the user as they are uploading with the 

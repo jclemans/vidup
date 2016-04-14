@@ -1,8 +1,25 @@
-<h1>Videos#index</h1>
-<p>Find me in app/views/videos/index.html.erb</p>
+<h1>All Videos</h1>
 
-<% @videos.each do |video|  %>
-  <%= video.title  %>
-  <%= video.length  %>
-  <%= video.format  %>
+<% @videos.in_groups_of(3) do |videos|  %>
+  <div class="row">
+    <% videos.each do |video| %>
+      <% if video %>
+        <div class="col-md-4">
+          <%= link_to video_path(video) do %>
+            <div class="card">
+              <%= video_tag video.attachment.url(:medium), controls: true, class: "card-img-top", style: "max-width: 100%;" %>
+              <div class="card-img-overlay card-inverse">
+                <h3 class="card-title"><%= video.title  %></h3>
+              </div>
+              <div class="card-block">
+                <p class="card-text">Seconds: <%= video.length %>, Format: <%= video.format  %>
+                </p>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+
 <% end %>
