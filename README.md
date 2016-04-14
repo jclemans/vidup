@@ -2,8 +2,13 @@
 
 ### Getting the application up and running
 
-* Ruby version 2.2.3 recommended. Rails 4.2 requires at least 1.9.3, and likes v2 best.
-* System dependencies
+Ruby version 
+* Ruby 2.2.3 recommended. Rails 4.2 requires at least 1.9.3, and likes v2 best.
+
+System dependencies:
+* ffmpeg
+* `brew install ffmpeg --with-fdk-aac --with-ffplay --with-freetype --with-frei0r --with-libas`
+
 * Configuration
 * Database creation
 * Database initialization
