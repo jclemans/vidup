@@ -9,9 +9,4 @@ describe Video do
   it { should validate_attachment_size(:attachment).
                 less_than(20.megabytes) }
 
-  xit "does a thing" do
-    stuff = things
-    expect(stuff).to eq things
-  end
-
 end
