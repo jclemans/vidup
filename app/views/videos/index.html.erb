@@ -2,6 +2,7 @@
 <p>Find me in app/views/videos/index.html.erb</p>
 
 <% @videos.each do |video|  %>
+  <%= image_tag @video.attachment.url(:medium) %>
   <%= video.title  %>
   <%= video.length  %>
   <%= video.format  %>
