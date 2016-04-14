@@ -1,7 +1,7 @@
 class Video < ActiveRecord::Base
   has_attached_file :attachment, 
     styles: { medium: { :geometry => "640x480", :format => 'mp4' },
-              thumb: { geometry: "100x100#", :format => 'png', :time => 10 }
+              thumb: { geometry: "100x100", :format => 'jpg' }
     }, 
     processors: [:transcoder]
   

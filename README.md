@@ -19,11 +19,11 @@ System dependencies:
 
 ### Checklist of Goals
 
-[] A user needs to be able to upload videos to the web application server
+[x] A user needs to be able to upload videos to the web application server
 
-[] The uploader should only be able to upload the mp4 file types
+[x] The uploader should only be able to upload the mp4 file types
 
-[] All other file types should be blocked
+[x] All other file types should be blocked
 
 [] After the video has been uploaded, the user should be able to replay this 
 video from the web application
