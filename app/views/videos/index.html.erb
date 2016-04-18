@@ -1,5 +1,27 @@
 <h1>All Videos</h1>
 
+
+<div class="row">
+  <div class="col-md-8">
+    <div id="new-videos">
+      <%= render @videos %>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <!-- WIP progres bar
+    <div id="loading-wrapper" style="display: none;">
+      <progress max="100" class="progress progress-warning active"></progress>
+    </div>​
+    <script id="template-upload" type="text/x-tmpl">
+      <div class="upload">
+        {%=o.name%}
+        <div class="progress"><div class="bar" style="width: 0%;"></div></div>
+      </div>
+    </script> -->
+    <%= render partial: 'form', locals: {video: @video} %>
+  </div>
+</div>
+
 <% @videos.in_groups_of(3) do |videos|  %>
   <div class="row">
     <% videos.each do |video| %>

@@ -1,0 +1,8 @@
+<div class="video">
+  <%= link_to image_tag(video.attachment.url(:thumb)), video if video.attachment? %>
+  <div class="title"><%= video.title %></div>
+  <div class="actions">
+    <%= link_to "edit", edit_video_path(video) %> |
+    <%= link_to "remove", video, :confirm => 'Are you sure?', :method => :delete %>
+  </div>
+</div>

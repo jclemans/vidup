@@ -1,19 +1,19 @@
 <p>Add your video details below and submit!</p>
-<%= form_for @video, :html => { action: 'create' } do |f| %>
+<%= form_for Video.new, :html => { action: 'create', id: 'video-form' } do |f| %>
   <p>
     <%= f.label :title %><br />
-    <%= f.text_field :title %>
+    <%= f.text_field :title, id: 'title-field' %>
   </p>
   <p>
     <%= f.label :length %><br />
-    <%= f.text_field :length %>
+    <%= f.text_field :length, id: 'length-field' %>
   </p>
   <p>
     <%= f.label :format %><br />
-    <%= f.text_field :format %>
+    <%= f.text_field :format, id: 'format-field' %>
   </p>
   <p>
-    <%= f.file_field :attachment %>
+    <%= f.file_field :attachment, id: 'file-field' %>
   </p>
-  <p><%= f.submit "Submit", class: "btn btn-primary-outline" %></p>
+  <p><%= f.submit "Submit", id: 'submit', class: "btn btn-primary-outline" %></p>
 <% end %>
