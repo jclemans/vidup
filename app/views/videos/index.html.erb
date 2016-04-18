@@ -8,16 +8,13 @@
     </div>
   </div>
   <div class="col-md-4">
-    <!-- WIP progres bar
-    <div id="loading-wrapper" style="display: none;">
-      <progress max="100" class="progress progress-warning active"></progress>
+    <div id="loading-wrapper" style="display: hidden;">
+      <progress value="0" max="100" class="progress progress-warning active"></progress>
     </div>​
+
     <script id="template-upload" type="text/x-tmpl">
-      <div class="upload">
-        {%=o.name%}
-        <div class="progress"><div class="bar" style="width: 0%;"></div></div>
-      </div>
-    </script> -->
+    </script>
+
     <%= render partial: 'form', locals: {video: @video} %>
   </div>
 </div>
