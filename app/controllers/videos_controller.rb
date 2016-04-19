@@ -20,7 +20,7 @@ class VideosController < ApplicationController
 
   def index
     @video = Video.new
-    @videos = Video.all.order(created_at: :desc)
+    @videos = Video.all.order(created_at: :desc).page params[:page]
   end
 
   def show

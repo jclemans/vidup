@@ -22,3 +22,11 @@
     <%= render partial: 'form', locals: {video: @video} %>
   </div>
 </div>
+<div class="row">
+  <div class="col-md-8">
+    <div class="text-xs-center">
+      <%= paginate @videos %>
+      <p>Pages<p>
+    </div>
+  </div>
+</div>
