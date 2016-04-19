@@ -26,7 +26,7 @@ video from the web application
 [x] It should show a progress bar to the user as they are uploading with the 
 percentage completed and the estimated time
 
-[] As a user uploads videos, the videos should show and be paginated in 
+[x] As a user uploads videos, the videos should show and be paginated in 
 sections of 5
 
 [] The videos should give some meta data such as length, format, name of 

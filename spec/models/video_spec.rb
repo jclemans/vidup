@@ -7,6 +7,6 @@ describe Video do
                 allowing('video/mp4').
                 rejecting('text/plain', 'text/xml') }
   it { should validate_attachment_size(:attachment).
-                less_than(20.megabytes) }
+                less_than(50.megabytes) }
 
 end
