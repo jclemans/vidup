@@ -1,0 +1,16 @@
+<div class="video">
+  
+  <% if video %>
+    <div class="col-md-4">
+      <div class="title"><%= video.title %></div>
+      <%= link_to image_tag(video.attachment.url(:thumb)), video if video.attachment? %>
+      
+      <p class="card-text">Seconds: <%= video.length %>, Format: <%= video.format  %></p>
+      <div class="actions">
+        <%= link_to "edit", edit_video_path(video) %> |
+        <%= link_to "remove", video, :confirm => 'Are you sure?', :method => :delete %>
+      </div>
+    </div>
+  <% end %>
+
+</div>

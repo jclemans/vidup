@@ -1,25 +1,24 @@
 <h1>All Videos</h1>
 
-<% @videos.in_groups_of(3) do |videos|  %>
-  <div class="row">
-    <% videos.each do |video| %>
-      <% if video %>
-        <div class="col-md-4">
-          <%= link_to video_path(video) do %>
-            <div class="card">
-              <%= video_tag video.attachment.url(:medium), controls: true, class: "card-img-top", style: "max-width: 100%;" %>
-              <div class="card-img-overlay card-inverse">
-                <h3 class="card-title"><%= video.title  %></h3>
-              </div>
-              <div class="card-block">
-                <p class="card-text">Seconds: <%= video.length %>, Format: <%= video.format  %>
-                </p>
-              </div>
-            </div>
-          <% end %>
-        </div>
-      <% end %>
+<div class="row">
+  <div class="col-md-8">
+    <%= @videos.each_slice(3) do |video| %>
+      <div id="new-videos row">
+        <%= render partial: 'video', collection: video, as: :video %>
+      </div>
     <% end %>
   </div>
+  <div class="col-md-4">
+    <div id="loading-wrapper" style = "display: none;">
+      <progress value="0" max="100" class="progress progress-warning active"></progress>
+      <div>
+        <span id="percent"></span><span id='time'></span>
+      </div>
+    </div>​
 
-<% end %>
+    <script id="template-upload" type="text/x-tmpl">
+    </script>
+
+    <%= render partial: 'form', locals: {video: @video} %>
+  </div>
+</div>

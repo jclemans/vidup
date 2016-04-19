@@ -7,5 +7,11 @@ class Video < ActiveRecord::Base
   
   validates_attachment :attachment, presence: true,
     content_type: { content_type: "video/mp4" },
-    size: { in: 0..20.megabytes }
+    size: { in: 0..50.megabytes }
+
+  before_create :set_default_name
+  
+  def set_default_name
+    self.title ||= File.basename(self.filename, '.*').titleize
+  end
 end
