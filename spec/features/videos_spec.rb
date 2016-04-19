@@ -1,5 +1,5 @@
 describe "Videos", :type => :feature do
-  
+  Video.destroy_all
   context "creating a new video" do
     it "adds a new video to the videos index", :js => true do
       visit '/'
@@ -26,4 +26,14 @@ describe "Videos", :type => :feature do
       expect(page).to have_content 'A new title'
     end
   end
+
+  context 'deleting an existing video' do
+    let!(:video){ FactoryGirl.create(:video) }
+    it 'removes the video' do
+      visit '/'
+      click_link 'remove'
+      expect(page).to have_content "Video 'This is a video title' deleted"
+    end
+  end
+
 end
