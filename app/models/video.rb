@@ -1,4 +1,7 @@
 class Video < ActiveRecord::Base
+
+  paginates_per 5
+
   has_attached_file :attachment, 
     styles: { medium: { :geometry => "640x480", :format => 'mp4' },
               thumb: { geometry: "100x100", :format => 'jpg' }
