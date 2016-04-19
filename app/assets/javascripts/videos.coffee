@@ -1,4 +1,4 @@
-$(document).ready ->
+jQuery ->
   $('#video-form').fileupload
     dataType: 'script'
     add: (e, data) ->

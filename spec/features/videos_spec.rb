@@ -1,13 +1,29 @@
-describe "adding videos", :type => :feature do
+describe "Videos", :type => :feature do
   
-  it "adds a new video to the videos index" do
-    visit '/'
-    within("#video-form") do
-      fill_in 'Title', :with => 'A video title'
-      fill_in 'Length', :with => '3'
-      click_button 'Choose File'
+  context "creating a new video" do
+    it "adds a new video to the videos index", :js => true do
+      visit '/'
+      within("#video-form") do
+        fill_in 'title-field', :with => 'A video title'
+        fill_in 'length-field', :with => '3'
+        attach_file('file-field', File.join(Rails.root, 'spec/sample_files/videos/testvid.mp4') )
+      end
+      click_button 'Submit'
+      expect(page).to have_content 'video saved'
+      expect(page).to have_content 'A video title'
     end
-    click_button 'Submit'
-    expect(page).to have_content 'Success'
+  end
+
+  context "editing an existing video" do
+    let!(:video){ FactoryGirl.create(:video) }
+    it "updates the video attributes" do
+      visit "/videos/#{video.id}/edit"
+      within("#video-form") do
+        fill_in 'title-field', :with => 'A new title'
+      end
+      click_button 'Submit'
+      expect(page).to have_content 'Video was successfully updated'
+      expect(page).to have_content 'A new title'
+    end
   end
 end

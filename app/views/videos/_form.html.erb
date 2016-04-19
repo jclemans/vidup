@@ -1,5 +1,5 @@
 <p>Add your video details below and submit!</p>
-<%= form_for Video.new, :html => { action: 'create', id: 'video-form' } do |f| %>
+<%= form_for @video, html: {id: 'video-form'} do |f| %>
   <p>
     <%= f.label :title %><br />
     <%= f.text_field :title, id: 'title-field' %>
@@ -13,7 +13,11 @@
     <%= f.text_field :format, id: 'format-field', value: 'mp4' %>
   </p>
   <p>
-    <%= f.file_field :attachment, id: 'file-field' %>
+    <% if @video.attachment.present? %>
+      <%= @video.attachment_file_name %>
+    <% else %>
+      <%= f.file_field :attachment, id: 'file-field' %>
+    <% end %>
   </p>
   <p><%= f.submit "Submit", id: 'submit', class: "btn btn-primary-outline" %></p>
 <% end %>

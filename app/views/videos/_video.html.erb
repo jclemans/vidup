@@ -2,7 +2,7 @@
   
   <% if video %>
     <div class="col-md-4">
-      <h4 class="title"><%= video.title %></h4>
+      <h6 class="title"><%= video.title %></h6>
       <%= link_to image_tag(video.attachment.url(:thumb)), video if video.attachment? %>
       <p class="card-text"><%= video.length %> seconds | <%= video.format  %></p>
       <p class="actions">

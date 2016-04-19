@@ -2,10 +2,14 @@
 
 <div class="row">
   <div class="col-md-8">
-    <%= @videos.each_slice(3) do |video| %>
-      <div id="new-videos row">
-        <%= render partial: 'video', collection: video, as: :video %>
-      </div>
+    <% if @videos %>
+      <%= @videos.each_slice(3) do |video| %>
+        <div id="new-videos row">
+          <%= render partial: 'video', collection: video, as: :video %>
+        </div>
+      <% end %>
+    <% else %>
+      <h3>No videos have been added yet.</h3>
     <% end %>
   </div>
   <div class="col-md-4">
@@ -25,7 +29,7 @@
 <div class="row">
   <div class="col-md-8">
     <div class="text-xs-center">
-      <%= paginate @videos %>
+      <%= paginate @videos if @videos %>
       <p>Pages<p>
     </div>
   </div>
