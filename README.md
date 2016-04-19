@@ -23,7 +23,7 @@ Run the test suite using Rspec:
 [x] After the video has been uploaded, the user should be able to replay this 
 video from the web application
 
-[] It should show a progress bar to the user as they are uploading with the 
+[x] It should show a progress bar to the user as they are uploading with the 
 percentage completed and the estimated time
 
 [] As a user uploads videos, the videos should show and be paginated in 

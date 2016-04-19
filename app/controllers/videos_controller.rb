@@ -20,7 +20,7 @@ class VideosController < ApplicationController
 
   def index
     @video = Video.new
-    @videos = Video.all.order(created_at: :desc).limit(5)
+    @videos = Video.all.order(created_at: :desc)
   end
 
   def show
