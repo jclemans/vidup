@@ -1,7 +1,7 @@
-<h1>All Videos</h1>
 
 <div class="row">
   <div class="col-md-8">
+    <h1>Videos</h1>
     <% if @videos %>
       <%= @videos.each_slice(3) do |video| %>
         <div id="new-videos row">
@@ -22,7 +22,7 @@
 
     <script id="template-upload" type="text/x-tmpl">
     </script>
-
+    <h3>Submit new</h3>
     <%= render partial: 'form', locals: {video: @video} %>
   </div>
 </div>

@@ -4,7 +4,7 @@ class Video < ActiveRecord::Base
 
   has_attached_file :attachment, 
     styles: { medium: { :geometry => "640x480", :format => 'mp4' },
-              thumb: { geometry: "100x100", :format => 'jpg' }
+              thumb: { geometry: "150x100", :format => 'jpg' }
     }, 
     processors: [:transcoder]
   
@@ -14,7 +14,12 @@ class Video < ActiveRecord::Base
   validates :title, presence: true
 
   before_create :set_default_name
+  # before_save :extract_metadata
   
+  # def extract_metadata
+
+  # end
+
   def set_default_name
     self.title ||= File.basename(self.filename, '.*').titleize
   end

@@ -1,11 +1,6 @@
 jQuery ->
   $('#video-form').fileupload
     dataType: 'script'
-    add: (e, data) ->
-      $('.progress').val(0)
-      data.context = $(tmpl("template-upload", data.files[0]))
-      $('#new_painting').append(data.context)
-      data.submit()
     progress: (e, data) ->
       $('#loading-wrapper').show()
       if data.context
@@ -17,5 +12,9 @@ jQuery ->
       if percent >= 100 # reset the progress bar after upload
         $('#loading-wrapper').delay(4000).fadeOut()
         $('#video-form')[0].reset()
-
+    add: (e, data) ->
+      $('.progress').val(0)
+      data.context = $(tmpl("template-upload", data.files[0]))
+      $('#new_videos').prepend(data.context)
+      data.submit()
   return false

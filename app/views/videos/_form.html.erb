@@ -1,23 +1,25 @@
-<p>Add your video details below and submit!</p>
 <%= form_for @video, html: {id: 'video-form'} do |f| %>
-  <p>
+  <div class='form-group'>
     <%= f.label :title %><br />
-    <%= f.text_field :title, id: 'title-field' %>
-  </p>
-  <p>
+    <%= f.text_field :title, id: 'title-field', class: 'form-control' %>
+  </div>
+  <div class='form-group'>
     <%= f.label :length %><br />
-    <%= f.text_field :length, id: 'length-field' %>
-  </p>
-  <p>
+    <%= f.text_field :length, id: 'length-field', class: 'form-control' %>
+  </div>
+  <div class='form-group'>
     <%= f.label :format %><br />
-    <%= f.text_field :format, id: 'format-field', value: 'mp4' %>
-  </p>
-  <p>
+    <%= f.text_field :format, id: 'format-field', class: 'form-control', value: 'mp4' %>
+  </div>
+  <div class='form-group'>
     <% if @video.attachment.present? %>
       <%= @video.attachment_file_name %>
     <% else %>
       <%= f.file_field :attachment, id: 'file-field' %>
     <% end %>
-  </p>
-  <p><%= f.submit "Submit", id: 'submit', class: "btn btn-primary-outline" %></p>
+  </div>
+  <div>
+    <%= f.submit "Submit", id: 'submit', class: "btn btn-primary-outline" %>
+    <%= link_to 'Cancel', videos_path, class: "btn btn-danger-outline" %>
+  </div>
 <% end %>

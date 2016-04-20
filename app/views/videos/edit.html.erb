@@ -1,7 +1,12 @@
+
 <div class="row">
+  <div class="col-md-8">
+    <%= link_to '< back', videos_path %>
+    <%= video_tag @video.attachment.url, controls: true, style: "max-width: 100%;" %>
+  </div>
   <div class="col-md-4">
     <h3>
-      Edit video '<%= @video.title %>'
+      Edit video: '<%= @video.title %>'
     </h3>
     
     <%= render partial: 'form', locals: {video: @video} %>
