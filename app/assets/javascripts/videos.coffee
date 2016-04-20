@@ -17,4 +17,3 @@ jQuery ->
       data.context = $(tmpl("template-upload", data.files[0]))
       $('#new_videos').prepend(data.context)
       data.submit()
-  return false
