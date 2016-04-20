@@ -14,11 +14,6 @@ class Video < ActiveRecord::Base
   validates :title, presence: true
 
   before_create :set_default_name
-  # before_save :extract_metadata
-  
-  # def extract_metadata
-
-  # end
 
   def set_default_name
     self.title ||= File.basename(self.filename, '.*').titleize
