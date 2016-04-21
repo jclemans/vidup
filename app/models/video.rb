@@ -14,25 +14,15 @@ class Video < ActiveRecord::Base
   validates :title, presence: true
 
   before_save :set_defaults
-  after_commit :set_duration, on: :create
-
 
   def set_defaults
     if self.attachment
+      metadata = eval(self.attachment_meta)
       file_name_details = self.attachment_file_name.split('.')
       self.title ||= file_name_details.first.titleize
       self.format = file_name_details.last.titleize
+      self.length = metadata[:duration].round
     end
-  end
-
-  def set_duration
-    if Rails.env == 'test'
-      file_path = Rails.root.join("spec/sample_files/videos/#{self.attachment_file_name}")
-    else
-      file_path = Rails.root.join("public/system/videos/attachments/000/000/#{self.id}/original/#{self.attachment_file_name}")
-    end
-    duration = `ffprobe -i #{file_path} -show_entries format=duration -v quiet -of csv="p=0"`
-    self.update_columns(length: duration.to_i) #update_columns avoids callbacks within after_commit
   end
 
 end

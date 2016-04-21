@@ -10,8 +10,10 @@ describe Video do
                 less_than(50.megabytes) }
   it { should validate_presence_of(:title) }
 
-  it 'sets the video length/duration after the file is attached' do
+  it 'sets values for title, format, and duration when created' do
     video = FactoryGirl.create(:video)
-    expect(video.length).to be > 0
+    expect(video.title).to eq 'This is a video title'
+    expect(video.format).to eq "Mp4"
+    expect(video.length).to eq 9
   end
 end
