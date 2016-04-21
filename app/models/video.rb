@@ -13,7 +13,7 @@ class Video < ActiveRecord::Base
     size: { in: 0..50.megabytes }
   validates :title, presence: true
 
-  before_save :set_defaults
+  before_create :set_defaults
 
   def set_defaults
     if self.attachment
