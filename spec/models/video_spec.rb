@@ -12,6 +12,6 @@ describe Video do
 
   it 'sets the video length/duration after the file is attached' do
     video = FactoryGirl.create(:video)
-    expect(video.length).to_not be nil
+    expect(video.length).to be > 0
   end
 end
