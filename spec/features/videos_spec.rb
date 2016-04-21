@@ -1,11 +1,10 @@
 describe "Videos", :type => :feature do
-  Video.destroy_all
-  context "creating a new video" do
+  
+  context "submit new form" do
     it "adds a new video to the videos index", :js => true do
       visit '/'
       within("#video-form") do
         fill_in 'title-field', :with => 'A video title'
-        fill_in 'length-field', :with => '3'
         attach_file('file-field', File.join(Rails.root, 'spec/sample_files/videos/testvid.mp4') )
       end
       click_button 'Submit'
@@ -28,10 +27,11 @@ describe "Videos", :type => :feature do
   end
 
   context 'deleting an existing video' do
+    Video.destroy_all
     let!(:video){ FactoryGirl.create(:video) }
     it 'removes the video' do
       visit '/'
-      click_link 'remove'
+      first('.actions').click_link 'remove'
       expect(page).to have_content "Video 'This is a video title' deleted"
     end
   end

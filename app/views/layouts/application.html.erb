@@ -8,10 +8,10 @@
 </head>
 <body>
 <%= render partial: 'layouts/nav'  %>
-<div class="container-fuid">
-  <% flash.each do |name, msg| %>
-    <%= content_tag :div, msg, id: "flash_#{name}" %>
-  <% end %>
+<% flash.each do |name, msg| %>
+  <%= content_tag :div, msg, id: "flash_#{name}", class: 'alert-info text-xs-center' %>
+<% end %>
+<div class="container-fluid">
   <%= yield %>
 </div>
 

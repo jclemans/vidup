@@ -1,20 +1,22 @@
-<h1>All Videos</h1>
 
 <div class="row">
   <div class="col-md-8">
-    <% if @videos %>
+    <h1>Videos</h1>
+    <div id='latest-video'></div>
+    <% if @videos.present? %>
       <%= @videos.each_slice(3) do |video| %>
         <div id="new-videos row">
           <%= render partial: 'video', collection: video, as: :video %>
         </div>
       <% end %>
     <% else %>
-      <h3>No videos have been added yet.</h3>
+      <h3>No videos have been added</h3>
+      <p>Use the form to add some now!</p>
     <% end %>
   </div>
   <div class="col-md-4">
     <div id="loading-wrapper" style = "display: none;">
-      <progress value="0" max="100" class="progress progress-warning active"></progress>
+      <progress value="0" max="100" class="progress progress-info progress-animated"></progress>
       <div>
         <span id="percent"></span><span id='time'></span>
       </div>
@@ -22,7 +24,7 @@
 
     <script id="template-upload" type="text/x-tmpl">
     </script>
-
+    <h3>Submit new</h3>
     <%= render partial: 'form', locals: {video: @video} %>
   </div>
 </div>
@@ -30,7 +32,6 @@
   <div class="col-md-8">
     <div class="text-xs-center">
       <%= paginate @videos if @videos %>
-      <p>Pages<p>
     </div>
   </div>
 </div>

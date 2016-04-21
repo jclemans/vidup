@@ -1,5 +1,5 @@
 <% if @video.new_record? %>
-  alert('The video could not be uploaded: <%= j @video.errors.full_messages.join(', ').html_safe %>');
+  $('.alert-info').append("Failed to upload: <%= j @video.errors.full_messages.join(', ').html_safe %>");
 <% else %>
-  $('#new-videos').append('<%= j render @video %>');
+  $('#latest-video').prepend('<%= j render @video %>');
 <% end %>
