@@ -12,9 +12,6 @@ jQuery ->
             percent = Math.round((data.loaded / data.total) * 100)
             secondsRemaining = Math.ceil((data.total - data.loaded) * 8 / data.bitrate)
             
-            # console.log('total seconds: ', estimatedDuration)
-            # console.log('remaining seconds: ', secondsRemaining)
-            
             progress_val = $('.progress').val()
             if progress_val < 100
               $('.progress').animate({
@@ -29,12 +26,10 @@ jQuery ->
               $('#percent').text(percent + '%  |  ')
               $('#time').text(secondsRemaining + ' seconds remaining')
               progress_val = percent
-              console.log('Percent complete: ', progress_val)
             
             else if $('.progress').val() >= 100
               $('#loading-wrapper').delay(3000).fadeOut()
               $('#video-form')[0].reset()
-              console.log('progress DONE')
               clearInterval(refreshIntervalId)
           ), 1000)
 

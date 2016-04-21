@@ -1,4 +1,3 @@
-<h3>
-  <%= @video.title %>
-</h3>
+<%= link_to '< back', videos_path %>
+<h2 class='text-xs-center'><%= @video.title %></h2>
 <%= video_tag @video.attachment.url, controls: true, style: "max-width: 100%;" %>

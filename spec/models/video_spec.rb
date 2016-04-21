@@ -10,4 +10,8 @@ describe Video do
                 less_than(50.megabytes) }
   it { should validate_presence_of(:title) }
 
+  it 'sets the video length/duration after the file is attached' do
+    video = FactoryGirl.create(:video)
+    expect(video.length).to_not be nil
+  end
 end
