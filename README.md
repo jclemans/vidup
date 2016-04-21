@@ -29,10 +29,10 @@ percentage completed and the estimated time
 [x] As a user uploads videos, the videos should show and be paginated in 
 sections of 5
 
-[] The videos should give some meta data such as length, format, name of 
+[x] The videos should give some meta data such as length, format, name of 
 video, etc.
 
-[] Unit and integration tests should be created
+[x] Unit and integration tests should be created
 
 
 ### Notes
