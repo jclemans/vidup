@@ -17,7 +17,7 @@ jQuery ->
               $('.progress').animate({
                 'value': percent
               }, {
-                duration: (estimatedDuration + 1) * 1000,
+                duration: (estimatedDuration) * 1000,
                 easing: 'linear'
                 complete: ->
                   clearInterval(refreshIntervalId)

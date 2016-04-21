@@ -14,7 +14,7 @@ class Video < ActiveRecord::Base
   validates :title, presence: true
 
   before_save :set_defaults
-  after_create :set_duration
+  after_commit :set_duration, on: :create
 
 
   def set_defaults
@@ -32,8 +32,7 @@ class Video < ActiveRecord::Base
       file_path = Rails.root.join("public/system/videos/attachments/000/000/#{self.id}/original/#{self.attachment_file_name}")
     end
     duration = `ffprobe -i #{file_path} -show_entries format=duration -v quiet -of csv="p=0"`
-    self.length = duration.to_f
-    self.save
+    self.update_columns(length: duration.to_i) #update_columns avoids callbacks within after_commit
   end
 
 end

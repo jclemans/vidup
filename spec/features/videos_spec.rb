@@ -5,7 +5,6 @@ describe "Videos", :type => :feature do
       visit '/'
       within("#video-form") do
         fill_in 'title-field', :with => 'A video title'
-        fill_in 'length-field', :with => '3'
         attach_file('file-field', File.join(Rails.root, 'spec/sample_files/videos/testvid.mp4') )
       end
       click_button 'Submit'
