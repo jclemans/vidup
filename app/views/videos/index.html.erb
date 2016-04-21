@@ -3,14 +3,15 @@
   <div class="col-md-8">
     <h1>Videos</h1>
     <div id='latest-video'></div>
-    <% if @videos %>
+    <% if @videos.present? %>
       <%= @videos.each_slice(3) do |video| %>
         <div id="new-videos row">
           <%= render partial: 'video', collection: video, as: :video %>
         </div>
       <% end %>
     <% else %>
-      <h3>No videos have been added yet.</h3>
+      <h3>No videos have been added</h3>
+      <p>Use the form to add some now!</p>
     <% end %>
   </div>
   <div class="col-md-4">

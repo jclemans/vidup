@@ -1,6 +1,6 @@
 describe "Videos", :type => :feature do
   
-  context "creating a new video" do
+  context "submit new form" do
     it "adds a new video to the videos index", :js => true do
       visit '/'
       within("#video-form") do
